@@ -1,0 +1,3 @@
+build/*
+nbdist/*
+.DS_Store
