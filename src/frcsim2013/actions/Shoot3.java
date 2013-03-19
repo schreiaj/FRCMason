@@ -4,7 +4,10 @@
  */
 package frcsim2013.actions;
 
+import frcsim2013.Match;
+import frcsim2013.util.RobotState;
 import java.util.Hashtable;
+import sim.engine.SimState;
 
 
 
@@ -15,19 +18,20 @@ import java.util.Hashtable;
 public class Shoot3 extends Action{
 
     @Override
-    public boolean perform(Hashtable properties) {
-        if(!canPerform(properties))
-        {
-            return false;
-        }
-        System.err.println("Shooting one!");
-        properties.put("discs",(Integer)properties.get("discs")-1);
-        return true;
+    public boolean perform(RobotState properties, Match m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean canPerform(Hashtable properties) {
-        return ((Integer)properties.get("discs")) > 0;
+    public boolean canPerform(RobotState properties, Match m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void step(SimState ss) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
 }

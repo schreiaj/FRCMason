@@ -16,6 +16,13 @@ import java.util.LinkedList;
  */
 public abstract class Strategy {
     private LinkedList<Action> actions;   
+
+    
+    public LinkedList<Action> getActionsList()
+    {
+        return actions;
+    }
+    
     
     public Strategy()
     {
