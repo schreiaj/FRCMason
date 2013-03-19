@@ -18,8 +18,6 @@ public class FRCSim2013 extends SimState {
     
     public FRCSim2013(long seed) {
         super(seed);
-        teams = new ArrayList<Team>();
-        teams.add(new Team());
         
     }
 
@@ -28,7 +26,6 @@ public class FRCSim2013 extends SimState {
     public void start()
     {
         super.start();
-        schedule.scheduleRepeating(teams.get(0));
     }
     
     

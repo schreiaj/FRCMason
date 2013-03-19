@@ -4,6 +4,8 @@
  */
 package frcsim2013;
 
+import frcsim2013.events.Event;
+import frcsim2013.util.RobotState;
 import java.util.LinkedList;
 import sim.engine.SimState;
 import sim.engine.Steppable;
@@ -16,40 +18,37 @@ import sim.engine.Stoppable;
 public class Match implements Steppable, Stoppable{
 
     int secondsRemaining;
-    LinkedList<Team> redAlliance, blueAlliance;
+    LinkedList<RobotState> redAlliance, blueAlliance;
+    LinkedList<Event> redEvents, blueEvents;
     
     
     public Match(int length, LinkedList<Team> red, LinkedList<Team> blue)
     {
         
         secondsRemaining = length;
-        redAlliance = red;
-        blueAlliance = blue;
+        redAlliance = new LinkedList<RobotState>();
+        blueAlliance = new LinkedList<RobotState>();
+        for(Team t: red)
+        {
+            RobotState rs = new RobotState(t,this);
+            t.getStrategy().initialize(rs);
+            redAlliance.add(rs);
+        }
+        for(Team t: blue)
+        {
+            RobotState rs = new RobotState(t,this);
+            t.getStrategy().initialize(rs);
+            blueAlliance.add(rs);
+        }
     }
     
     @Override
     public void step(SimState ss) {
-        if(secondsRemaining <= 0)
-        {
-            this.stop();
-            return;
-        }
-        for(Team t: redAlliance)
-        {
-            t.step(ss);
-        }
-        for(Team t:blueAlliance)
-        {
-            t.step(ss);
-        }
-        secondsRemaining--;
-        
-        
+              
     }
 
     @Override
     public void stop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

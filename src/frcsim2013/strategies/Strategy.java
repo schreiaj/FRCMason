@@ -4,8 +4,10 @@
  */
 package frcsim2013.strategies;
 
+
+import frcsim2013.Match;
 import frcsim2013.actions.Action;
-import java.util.Hashtable;
+import frcsim2013.util.RobotState;
 import java.util.LinkedList;
 
 /**
@@ -13,16 +15,20 @@ import java.util.LinkedList;
  * @author aschreiber
  */
 public abstract class Strategy {
-    public LinkedList<Action> actions;   
+    private LinkedList<Action> actions;   
     
     public Strategy()
     {
         actions = new LinkedList<Action>();
     }
     
-    public Action getNextAction(Hashtable properties){
+    // This is the function you need to override to initialize your robot state 
+    // At the start of a match. It WILL modify state
+    public abstract void initialize(RobotState state);
+    
+    public Action getNextAction(RobotState state, Match m){
         for(Action a: actions){
-            if(a.canPerform(properties))
+            if(a.canPerform(state, m))
                 return a;
         }
         return null;

@@ -13,28 +13,33 @@ import sim.engine.*;
  *
  * @author aschreiber
  */
-public class Team implements Steppable{
+public class Team {
 
-    Hashtable<String, Object> properties;
-    Strategy strategy;
-    
-    public Team()
-    {
-        properties = new Hashtable<String, Object>();
-        strategy = new ShootStrategy();
-        properties.put("discs", new Integer(3));
-        properties.put("max_discs", new Integer(4));
+    private Strategy strategy;
+
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
     }
+
+    public void setCompetentency(double competentency) {
+        this.competentency = competentency;
+    }
+
+    public Strategy getStrategy() {
+        return strategy;
+    }
+
+    public double getCompetentency() {
+        return competentency;
+    }
+    // This is how good teams are at executing on their strategy. On a scale of 0-100. 
+    // We use competency + randomDraw (from Mason's generator) and compare it to difficulty of action
+    // We then will trigger off a EventTriggeredOnPass or EventTriggeredOnFail for that action
+    private double competentency;   
     
-    @Override
-    public void step(SimState ss) {
-        Action a = strategy.getNextAction(properties);
-        if(a != null)
-        {
-            a.perform(properties);
-            
-        }
-            
-        
+    public Team(Strategy s, double skill)
+    {
+        strategy = s;
+        competentency = skill;
     }
 }

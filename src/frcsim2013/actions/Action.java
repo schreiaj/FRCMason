@@ -4,14 +4,15 @@
  */
 package frcsim2013.actions;
 
-import java.util.Hashtable;
-
+import frcsim2013.Match;
+import frcsim2013.util.RobotState;
+import sim.engine.Steppable;
 /**
  *
  * @author aschreiber
  */
-public abstract class Action {
-    public abstract boolean perform(Hashtable properties);
-    public abstract boolean canPerform(Hashtable properties);
-    public int secondsToPerform;
+public abstract class Action implements Steppable{
+    double secondsRequired;
+    public abstract boolean perform(RobotState properties, Match m);
+    public abstract boolean canPerform(RobotState properties, Match m);   
 }
