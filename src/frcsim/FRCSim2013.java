@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013;
+package frcsim;
 
-import frcsim2013.strategies.ShootStrategy;
+import frcsim.strategies.ShootStrategy;
+import frcsim.util.TeamLoader;
 import sim.engine.*;
 
 import java.util.ArrayList;
@@ -20,11 +21,12 @@ public class FRCSim2013 extends SimState {
     
     public FRCSim2013(long seed) {
         super(seed);
-        LinkedList<Team> teams = new LinkedList<Team>();
-        for(int i = 0; i < Globals.getTeams(); i++)
+        LinkedList<Team> teams = TeamLoader.loadTeams("test.teams");
+        for(Team t: teams)
         {
-            teams.add(new Team(ShootStrategy.class, 50));
+            System.out.println(t);
         }
+        
         
         
     }

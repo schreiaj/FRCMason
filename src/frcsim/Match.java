@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013;
+package frcsim;
 
-import frcsim2013.events.Event;
-import frcsim2013.util.RobotState;
+import frcsim.events.Event;
+import frcsim.util.RobotState;
 import java.util.LinkedList;
 import sim.engine.SimState;
 import sim.engine.Steppable;

@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013.actions;
-import frcsim2013.Globals;
-import frcsim2013.Match;
-import frcsim2013.util.RobotState;
+package frcsim.actions;
+import frcsim.Globals;
+import frcsim.Match;
+import frcsim.util.RobotState;
 
 /**
  *

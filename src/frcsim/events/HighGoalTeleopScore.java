@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013.events;
+package frcsim.events;
 
-import frcsim2013.Globals;
+import frcsim.Globals;
 
 /**
  *

@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013.util;
+package frcsim.util;
 
 
-import frcsim2013.Match;
-import frcsim2013.Team;
-import frcsim2013.actions.Action;
+import frcsim.Match;
+import frcsim.Team;
+import frcsim.actions.Action;
 import java.util.HashMap;
 import sim.engine.SimState;
 import sim.engine.Steppable;

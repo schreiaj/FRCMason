@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013;
+package frcsim;
 
-import frcsim2013.strategies.*;
+import frcsim.strategies.Strategy;
 
 /**
  *
@@ -14,6 +14,15 @@ public class Team {
 
     private Strategy strategy;
     private double skill;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public double getSkill() {
         return skill;
@@ -43,15 +52,18 @@ public class Team {
     // We then will trigger off a EventTriggeredOnPass or EventTriggeredOnFail for that action
     private double competentency;
 
-    public Team(Class<?> s, double skill) {
+    public Team(String name, Class<?> s, double skill) {
         try {
-            strategy = (Strategy)s.getConstructors()[0].newInstance(skill);
+            strategy = (Strategy) s.getConstructors()[0].newInstance(skill);
         } catch (Exception e) {
             System.err.print(e);
             System.exit(-1);
         }
+        this.name = name;
         competentency = skill;
-        
-        System.err.println("Spawned team playing " + strategy.getClass() + " strategy with skill of " + competentency + "." );
+    }
+
+    public String toString() {
+        return ("Team " + this.name + " is " + this.competentency + "% good at playing " + this.strategy.getClass() + " strategy.");
     }
 }

@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013.strategies;
+package frcsim.strategies;
 
 
-import frcsim2013.Match;
-import frcsim2013.actions.Action;
-import frcsim2013.util.RobotState;
+import frcsim.Match;
+import frcsim.actions.Action;
+import frcsim.util.RobotState;
 import java.util.LinkedList;
 
 /**

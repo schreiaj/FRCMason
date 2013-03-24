@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package frcsim2013.strategies;
+package frcsim.strategies;
 
 
-import frcsim2013.Globals;
-import frcsim2013.actions.TeleopShootThreePoint;
-import frcsim2013.util.RobotState;
+import frcsim.Globals;
+import frcsim.actions.TeleopShootThreePoint;
+import frcsim.util.RobotState;
 
 /**
  *
