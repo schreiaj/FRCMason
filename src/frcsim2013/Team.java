@@ -5,9 +5,6 @@
 package frcsim2013;
 
 import frcsim2013.strategies.*;
-import frcsim2013.actions.Action;
-import java.util.Hashtable;
-import sim.engine.*;
 
 /**
  *
@@ -46,8 +43,15 @@ public class Team {
     // We then will trigger off a EventTriggeredOnPass or EventTriggeredOnFail for that action
     private double competentency;
 
-    public Team(Strategy s, double skill) {
-        strategy = s;
+    public Team(Class<?> s, double skill) {
+        try {
+            strategy = (Strategy)s.getConstructors()[0].newInstance(skill);
+        } catch (Exception e) {
+            System.err.print(e);
+            System.exit(-1);
+        }
         competentency = skill;
+        
+        System.err.println("Spawned team playing " + strategy.getClass() + " strategy with skill of " + competentency + "." );
     }
 }

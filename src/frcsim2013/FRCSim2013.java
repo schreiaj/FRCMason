@@ -4,9 +4,11 @@
  */
 package frcsim2013;
 
+import frcsim2013.strategies.ShootStrategy;
 import sim.engine.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -18,6 +20,12 @@ public class FRCSim2013 extends SimState {
     
     public FRCSim2013(long seed) {
         super(seed);
+        LinkedList<Team> teams = new LinkedList<Team>();
+        for(int i = 0; i < Globals.getTeams(); i++)
+        {
+            teams.add(new Team(ShootStrategy.class, 50));
+        }
+        
         
     }
 

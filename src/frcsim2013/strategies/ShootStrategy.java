@@ -5,11 +5,9 @@
 package frcsim2013.strategies;
 
 
-import frcsim2013.actions.Action;
+import frcsim2013.Globals;
 import frcsim2013.actions.TeleopShootThreePoint;
-import frcsim2013.events.HighGoalTeleopScore;
 import frcsim2013.util.RobotState;
-import java.util.Hashtable;
 
 /**
  *
@@ -17,10 +15,10 @@ import java.util.Hashtable;
  */
 public class ShootStrategy extends Strategy{
 
-    public ShootStrategy(double shootTime)
+    public ShootStrategy(double skill)
     {
-        super();
-        this.addAction(new TeleopShootThreePoint(shootTime));
+        super(skill);
+        this.addAction(new TeleopShootThreePoint(Globals.getAverageShootTime()));
     }    
 
     @Override

@@ -29,7 +29,7 @@ public abstract class Strategy {
     }
     
     
-    public Strategy()
+    public Strategy(double competency)
     {
         actions = new LinkedList<Action>();
     }

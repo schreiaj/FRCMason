@@ -29,6 +29,11 @@ public class Globals {
     private static double lowTeleShootDifficulty = 30;
     private static double pyramidTeleShootDifficulty = 90;
     private static double averageShootTime = .75;
+    private static int teams = 60;
+
+    public static int getTeams() {
+        return teams;
+    }
 
     public static double getTicsPerSecond() {
         return Globals.ticsPerSecond;
