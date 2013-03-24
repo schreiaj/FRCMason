@@ -10,7 +10,7 @@ package frcsim;
  */
 public class Globals {
 
-    private static double ticsPerSecond = .1;
+    private static double secondsPerTic = .1;
     private static int highGoalAutonPoint = 6;
     private static int middleGoalAutonPoint = 5;
     private static int lowGoalAutonPoint = 4;
@@ -24,19 +24,29 @@ public class Globals {
     private static double highAutonShootDifficulty = 60;
     private static double middleAutonShootDifficulty = 40;
     private static double lowAutonShootDifficulty = 30;
-    private static double highTeleShootDifficulty = 60;
-    private static double middleTeleShootDifficulty = 40;
-    private static double lowTeleShootDifficulty = 30;
-    private static double pyramidTeleShootDifficulty = 90;
+    private static double highTeleShootDifficulty = 40;
+    private static double middleTeleShootDifficulty = 20;
+    private static double lowTeleShootDifficulty = 1;
+    private static double pyramidTeleShootDifficulty = 80;
     private static double averageShootTime = .75;
+    private static double humanLoadDifficulty = 5;
+
+    public static double getHumanLoadDifficulty() {
+        return humanLoadDifficulty;
+    }
     private static int teams = 60;
+    private static int matchLength = 120;
+
+    public static int getMatchLength() {
+        return matchLength;
+    }
 
     public static int getTeams() {
         return teams;
     }
 
-    public static double getTicsPerSecond() {
-        return Globals.ticsPerSecond;
+    public static double getSecondsPerTic() {
+        return Globals.secondsPerTic;
     }
 
     public static int getHighGoalAutonPoint() {

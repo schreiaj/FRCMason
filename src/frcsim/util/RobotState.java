@@ -33,7 +33,7 @@ public class RobotState implements Steppable{
     public RobotState(Team team, Match m)
     {
         properties = new HashMap<String, Integer>();
-        team = team;
+        this.team = team;
         this.m = m;
     }
     
@@ -71,6 +71,6 @@ public class RobotState implements Steppable{
         }
         // Because perform returns the action or null we don't have to check if
         // it is done.
-        inProcess = inProcess.perform(this, m);
+        inProcess = inProcess.perform(ss,this, m);
     }
 }

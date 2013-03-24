@@ -4,11 +4,9 @@
  */
 package frcsim;
 
-import frcsim.strategies.ShootStrategy;
+import frcsim.util.ScheduleLoader;
 import frcsim.util.TeamLoader;
 import sim.engine.*;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -17,28 +15,30 @@ import java.util.LinkedList;
  */
 public class FRCSim2013 extends SimState {
 
-    private ArrayList<Team> teams;
-    
+    private LinkedList<Team> teams;
+
     public FRCSim2013(long seed) {
         super(seed);
-        LinkedList<Team> teams = TeamLoader.loadTeams("test.teams");
-        for(Team t: teams)
-        {
-            System.out.println(t);
-        }
         
-        
-        
+
+
     }
 
-    
     @Override
-    public void start()
-    {
+    public void start() {
         super.start();
+        teams = TeamLoader.loadTeams("test.teams");
+        for (Team t : teams) {
+            System.err.println(t);
+        }
+        
+        LinkedList<Team> red = new LinkedList<Team>();
+        LinkedList<Team> blue = new LinkedList<Team>();
+        Schedule matchSchedule = ScheduleLoader.loadSchedule("test.schedule", teams);
+        schedule.scheduleOnce(matchSchedule.getNextMatch());
+
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */

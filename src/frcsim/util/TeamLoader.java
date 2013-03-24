@@ -31,4 +31,16 @@ public class TeamLoader {
         }
         return teams;
     }
+    
+    public static Team findTeamByName(String name, LinkedList<Team> teams)
+    {
+        for(Team t: teams)
+        {
+            if(t.getName().equals(name))
+            {
+                return t;
+            }
+        }
+        return null;
+    }
 }

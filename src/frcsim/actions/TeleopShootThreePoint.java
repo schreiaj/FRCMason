@@ -3,45 +3,39 @@
  * and open the template in the editor.
  */
 package frcsim.actions;
+
 import frcsim.Globals;
 import frcsim.Match;
+import frcsim.events.Event;
+import frcsim.events.HighGoalTeleopScore;
+import frcsim.events.NullEvent;
 import frcsim.util.RobotState;
+import sim.engine.SimState;
 
 /**
  *
  * @author aschreiber
  */
-public class TeleopShootThreePoint extends Action{
+public class TeleopShootThreePoint extends Action {
 
-    public TeleopShootThreePoint(double shotTime)
-    {
+    public TeleopShootThreePoint(double shotTime) {
         this.secondsRemaining = shotTime;
-        this.setDifficulty(Globals.getHighAutonShootDifficulty());
+        this.setDifficulty(Globals.getHighTeleShootDifficulty());
+        this.setOnFail(NullEvent.class);
+        this.setOnPass(HighGoalTeleopScore.class);
     }
-    
-    @Override
-    public Action perform(RobotState properties, Match m) {
-        
-        this.secondsRemaining -= Globals.getTicsPerSecond();
-        if(this.secondsRemaining <= 0)
-        {
-            this.onStop(properties, m);
-            return null;
-        }
-        return this;
-           
-    }
+
 
     @Override
     public boolean canPerform(RobotState properties, Match m) {
         // We can't do this action if there's not time enough left in match
         // Or, I guess, if the robot doesn't have discs...
         return this.secondsRemaining <= m.getSecondsRemaining() && properties.get("discs") > 0;
-    }  
+    }
 
     @Override
-    public void onStop(RobotState properties, Match m) {
-
+    public void onStop(SimState ss, RobotState properties, Match m) {
+        properties.decrement("discs");
+        super.onStop(ss,properties,m);
     }
-    
 }

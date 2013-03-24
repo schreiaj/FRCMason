@@ -11,11 +11,6 @@ import frcsim.Globals;
  * @author aschreiber
  */
 public class HighGoalTeleopScore implements Event{
-    public HighGoalTeleopScore()
-    {
-        
-    }
-
     @Override
     public String toString()
     {

@@ -1,3 +1,6 @@
-1 ShootStrategy 24
-4 ShootStrategy 50
-610 ShootStrategy 90
+1 ShootHighStrategy 24
+4 ShootHighStrategy 50
+314 ShootHighStrategy 60
+610 ShootHighStrategy 80
+1114 ShootHighStrategy 90
+2056 ShootHighStrategy 95
