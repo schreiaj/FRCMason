@@ -4,14 +4,26 @@
  */
 package frcsim2013.events;
 
+import frcsim2013.Globals;
+
 /**
  *
  * @author aschreiber
  */
-public class HighGoalTeleopScore extends Event{
+public class HighGoalTeleopScore implements Event{
     public HighGoalTeleopScore()
     {
-        this.name = "High Goal Teleop Score";
-        this.value = 3;
+        
+    }
+
+    @Override
+    public String toString()
+    {
+        return HighGoalTeleopScore.class.toString();
+    }
+    
+    @Override
+    public double getValue() {
+        return Globals.getHighGoalTelePoint();
     }
 }

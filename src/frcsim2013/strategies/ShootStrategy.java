@@ -4,9 +4,10 @@
  */
 package frcsim2013.strategies;
 
-import frcsim2013.actions.Load;
+
 import frcsim2013.actions.Action;
-import frcsim2013.actions.Shoot3;
+import frcsim2013.actions.TeleopShootThreePoint;
+import frcsim2013.events.HighGoalTeleopScore;
 import frcsim2013.util.RobotState;
 import java.util.Hashtable;
 
@@ -16,15 +17,13 @@ import java.util.Hashtable;
  */
 public class ShootStrategy extends Strategy{
 
-    public ShootStrategy()
+    public ShootStrategy(double shootTime)
     {
         super();
-        this.getActionsList().add(new Shoot3());
-        this.getActionsList().add(new Load());
+        this.addAction(new TeleopShootThreePoint(shootTime));
     }    
 
     @Override
     public void initialize(RobotState state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

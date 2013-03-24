@@ -8,7 +8,7 @@ package frcsim2013.events;
  *
  * @author aschreiber
  */
-public abstract class Event {
-    int value;
-    String name;
+public interface Event {
+    public double getValue();
+    public String toString();
 }

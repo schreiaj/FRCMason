@@ -64,11 +64,13 @@ public class RobotState implements Steppable{
 
     @Override
     public void step(SimState ss) {
-        // If we aren't doing anything let's do something! 
+       // Ok, let's do something.
         if(inProcess == null)
         {
             inProcess = team.getStrategy().getNextAction(this, m);
         }
-        inProcess.step(ss);
+        // Because perform returns the action or null we don't have to check if
+        // it is done.
+        inProcess = inProcess.perform(this, m);
     }
 }

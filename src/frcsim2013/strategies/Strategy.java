@@ -23,6 +23,11 @@ public abstract class Strategy {
         return actions;
     }
     
+    public void addAction(Action a)
+    {
+        actions.addLast(a);
+    }
+    
     
     public Strategy()
     {

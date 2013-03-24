@@ -17,7 +17,15 @@ import sim.engine.Stoppable;
  */
 public class Match implements Steppable, Stoppable{
 
-    int secondsRemaining;
+    private int secondsRemaining;
+
+    public int getSecondsRemaining() {
+        return secondsRemaining;
+    }
+
+    public void setSecondsRemaining(int secondsRemaining) {
+        this.secondsRemaining = secondsRemaining;
+    }
     LinkedList<RobotState> redAlliance, blueAlliance;
     LinkedList<Event> redEvents, blueEvents;
     
