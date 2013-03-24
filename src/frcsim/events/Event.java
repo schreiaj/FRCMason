@@ -10,5 +10,6 @@ package frcsim.events;
  */
 public interface Event {
     public double getValue();
+    @Override
     public String toString();
 }

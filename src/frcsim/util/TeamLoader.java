@@ -5,9 +5,7 @@
 package frcsim.util;
 
 import frcsim.Team;
-import frcsim.strategies.Strategy;
 import java.io.*;
-import java.lang.ClassLoader;
 import java.util.LinkedList;
 
 /**

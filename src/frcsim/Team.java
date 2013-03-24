@@ -64,6 +64,8 @@ public class Team {
     }
 
     public String toString() {
+        //Meh, I feel like I should be mad at myself for doing this. 
+        // Probably should use StringBuilder 
         return ("Team " + this.name + " is " + this.competentency + "% good at playing " + this.strategy.getClass() + " strategy.");
     }
 }
